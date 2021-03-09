@@ -14,7 +14,7 @@ function generate() {
         fs.rmdirSync(path.join(__dirname, "public"));
     } catch (e) {}
     console.info("Fetching all keys...");
-    const allKeys = fs.readdirSync(path.join(__dirname, "assets", "keys")).filter((e) => e.endsWith(".asc"));
+    const allKeys = fs.readdirSync(path.join(__dirname, "static", "keys")).filter((e) => e.endsWith(".asc"));
     const keysCollection = allKeys.map((res) => {
         let key_name = res.split(".")[0];
         let split_name = key_name.match(/.{1,4}/g).join(" ");
@@ -55,8 +55,8 @@ function generate() {
     generatedPages = generatedPages.replace("{{pageGenTime}}", deltaTime);
     fs.writeFileSync(path.join(__dirname, "public", "index.html"), generatedPages);
     console.info("Copying assets folder contents...");
-    shelljs.cp("-R", path.join(__dirname, "assets", "assets"), path.join(__dirname, "public", "assets"));
-    shelljs.cp("-R", path.join(__dirname, "assets", "keys"), path.join(__dirname, "public", "keys"));
+    shelljs.cp("-R", path.join(__dirname, "static", "assets"), path.join(__dirname, "public", "assets"));
+    shelljs.cp("-R", path.join(__dirname, "static", "keys"), path.join(__dirname, "public", "keys"));
     console.info(`Page generated in ${deltaTime}!`);
 }
 
