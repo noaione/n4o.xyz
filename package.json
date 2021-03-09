@@ -1,0 +1,23 @@
+{
+  "name": "main-web-domain",
+  "version": "1.0.0",
+  "description": "A simple splash screen website",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/noaione/noaione.gitlab.io.git"
+  },
+  "author": "N4O",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/noaione/noaione.gitlab.io/issues"
+  },
+  "homepage": "https://gitlab.com/noaione/noaione.gitlab.io#readme",
+  "dependencies": {
+    "html-minifier": "^4.0.0",
+    "shelljs": "^0.8.4"
+  }
+}
