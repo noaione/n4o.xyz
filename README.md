@@ -2,7 +2,8 @@
 
 A simple landing page that hotlinks into most of my subdomain and other owned domains.
 
-Deployed Website: [n4o.xyz](https://n4o.xyz/)
+Deployed Website: [n4o.xyz](https://n4o.xyz/)<br>
+Hosted with [Cloudflare Pages](https://pages.cloudflare.com/)
 
 This use a custom-made generators that fit my needs.
 
