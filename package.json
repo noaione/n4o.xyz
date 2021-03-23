@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/noaione/noaione.gitlab.io.git"
+    "url": "git+https://github.com/noaione/n4o.xyz.git"
   },
   "author": "N4O",
   "license": "MIT",
   "bugs": {
-    "url": "https://gitlab.com/noaione/noaione.gitlab.io/issues"
+    "url": "https://github.com/noaione/n4o.xyz/issues"
   },
-  "homepage": "https://gitlab.com/noaione/noaione.gitlab.io#readme",
+  "homepage": "https://github.com/noaione/n4o.xyz",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
