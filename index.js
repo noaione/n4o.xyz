@@ -14,7 +14,7 @@ const keysCollection = allKeys.map((res) => {
 });
 
 const app = new App({
-    target: document.body,
+    target: document.getElementById("root"),
     props: {
         keys: keysCollection
     }
