@@ -1,9 +1,14 @@
 <script>
     export let keys;
 
+    import { onMount } from "svelte";
     import { fade } from "svelte/transition";
 
     let showKeys = false;
+    let loaded = false;
+    onMount(() => {
+        setTimeout(() => loaded = true, 50)
+    })
 
     function toggleKeys() {
         showKeys = !showKeys;
@@ -61,7 +66,8 @@
     }
 </style>
 
-<main class="bg-main monospaced text-white">
+{#if loaded}
+<main class="bg-main monospaced text-white" in:fade="{{ duration: 150 }}">
     <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
         {#if !showKeys}
         <div id="main" class="col-sm-6">
@@ -92,3 +98,4 @@
         {/if}
     </div>
 </main>
+{/if}
