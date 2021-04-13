@@ -9,9 +9,15 @@
         setTimeout(() => loaded = true, 50)
     })
 
-    let showed = "resume";
+    let showed = "main";
+    let extrasClass = "";
     function toggle(event, target) {
         showed = target;
+        if (showed === "resume") {
+            extrasClass = "m-2";
+        } else {
+            extrasClass = "";
+        }
     }
 </script>
 
@@ -71,10 +77,10 @@
 </style>
 
 {#if loaded}
-<main class="bg-main monospaced text-white m-2" in:fade="{{ duration: 150 }}">
+<main class="bg-main monospaced text-white {extrasClass}" in:fade="{{ duration: 200 }}">
     <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
         {#if showed === "main"}
-        <div id="main" class="col-sm-6">
+        <div id="main" class="col-sm-6" in:fade>
 			<h2 class="bolder"><a class="linkify" href="https://blog.n4o.xyz">blog</a></h2>
 			<h2 class="bolder"><a class="linkify" href="https://shigoto.n4o.xyz">release</a></h2>
 			<h3 class="bolder"><a class="linkify-2" href="https://ihateani.me" target="_blank">ihateani.me</a></h3>
@@ -87,7 +93,7 @@
         </div>
         {/if}
         {#if showed === "keys"}
-        <div id="keys-set" class="col-sm-6">
+        <div id="keys-set" class="col-sm-6" in:fade>
             <h4 class="bolder"><span class="linkify-2" on:click={toggle.bind(toggle, "a", "main")}>&lt; go back</span></h4>
             <hr />
             {#each keys as {is_default, name, path}, i}
@@ -102,7 +108,7 @@
         </div>
         {/if}
         {#if showed === "resume"}
-        <div id="resume-set" class="col-sm-6">
+        <div id="resume-set" class="col-sm-6" in:fade>
             <h4 class="bolder"><span class="linkify-2" on:click={toggle.bind(toggle, "a", "main")}>&lt; go back</span></h4>
             <h2 class="bolder">Aiman Maharana</h2>
             <h5><a class="linkify" href="mailto:hi@n4o.xyz">hi@n4o.xyz</a></h5>
