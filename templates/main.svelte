@@ -174,8 +174,8 @@
             <hr />
             <h5 class="bolder">Donate</h5>
             <p>You can donate to me via one of this link:</p>
-            <h5><a class="linkify bolder" href="https://trakteer.id/noaione/tip">Trakteer</a> (IDR)</h5>
-            <h5><a class="linkify bolder" href="https://ko-fi.com/noaione">Ko-fi</a> (USD/etc)</h5>
+            <h5><a class="linkify bolder" href="https://trakteer.id/noaione/tip">Trakteer</a> (Indonesian only)</h5>
+            <h5><a class="linkify bolder" href="https://ko-fi.com/noaione">Ko-fi</a> (Anywhere else)</h5>
         </div>
         {/if}
     </div>
