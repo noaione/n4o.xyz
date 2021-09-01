@@ -7,21 +7,38 @@
     import DevStack from "./components/DevStack.svelte";
     import Project from "./components/Project.svelte";
 
-    let loaded = false;
-    onMount(() => {
-        setTimeout(() => loaded = true, 50)
-    })
+    let VALID_PAGE = ["resume", "keys", "donate"];
 
+    let loaded = false;
     let showed = "main";
     let extrasClass = "";
-    function toggle(target) {
+    let toggle = (target) => {
+        if (target !== "main" && !VALID_PAGE.includes(target)) {
+            return;
+        }
         showed = target;
         if (showed === "resume") {
             extrasClass = "m-2";
+            window.scrollTo({top: 0, behavior: "smooth"});
         } else {
             extrasClass = "";
         }
-    }
+        if (showed !== "main") {
+            history.pushState(null, null, `/#/${showed}`);
+        } else {
+            history.pushState(null, null, "/#/");
+        }
+    };
+
+    onMount(() => {
+        let currentHash = window.location.hash.substr(2);
+        if (currentHash !== "" && VALID_PAGE.includes(currentHash)) {
+            toggle(currentHash);
+        } else {
+            history.pushState(null, null, "/#/");
+        }
+        setTimeout(() => loaded = true, 250)
+    });
 </script>
 
 <style>
@@ -76,6 +93,11 @@
     .m-2 {
         margin: 0.5rem;
     }
+
+    #resume-set {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
 </style>
 
 {#if loaded}
@@ -90,6 +112,7 @@
             <h4 class="bolder">
                 <span class="linkify-2" on:click={() => toggle("keys")}>gpg keys</span>
                 <span class="linkify-2" on:click={() => toggle("resume")}>resume</span>
+                <span class="linkify-2" on:click={() => toggle("donate")}>donate</span>
             </h4>
 			<!--sse--><h6>Contact: <a class="linkify" href="mailto:hi@n4o.xyz">hi@n4o.xyz</a></h6><!--/sse-->
         </div>
@@ -112,6 +135,7 @@
         {#if showed === "resume"}
         <div id="resume-set" class="col-sm-6" in:fade>
             <h4 class="bolder"><span class="linkify-2" on:click={() => toggle("main")}>&lt; go back</span></h4>
+            <hr />
             <h2 class="bolder">Aiman Maharana</h2>
             <h5><a class="linkify" href="mailto:hi@n4o.xyz">hi@n4o.xyz</a></h5>
             <h6><a class="linkify" href="https://n4o.xyz">https://n4o.xyz</a></h6>
@@ -142,6 +166,16 @@
             </DevStack>
             <h3 class="bolder">Education</h3>
             <h5><b>Asia Pacific University, Malaysia</b> - 2020-Present -- Computer Science (Intelligent System) </h5>
+        </div>
+        {/if}
+        {#if showed === "donate"}
+        <div id="donate-set" class="col-sm-6" in:fade>
+            <h4 class="bolder"><span class="linkify-2" on:click={() => toggle("main")}>&lt; go back</span></h4>
+            <hr />
+            <h5 class="bolder">Donate</h5>
+            <p>You can donate to me via one of this link:</p>
+            <h5><a class="linkify bolder" href="https://trakteer.id/noaione/tip">Trakteer</a> (IDR)</h5>
+            <h5><a class="linkify bolder" href="https://ko-fi.com/noaione">Ko-fi</a> (USD/etc)</h5>
         </div>
         {/if}
     </div>
