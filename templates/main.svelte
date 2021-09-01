@@ -13,7 +13,7 @@
 
     let showed = "main";
     let extrasClass = "";
-    function toggle(event, target) {
+    function toggle(target) {
         showed = target;
         if (showed === "resume") {
             extrasClass = "m-2";
@@ -88,15 +88,15 @@
 			<h3 class="bolder"><a class="linkify-2" href="https://ihateani.me" target="_blank">ihateani.me</a></h3>
 			<hr />
             <h4 class="bolder">
-                <span class="linkify-2" on:click={toggle.bind(toggle, "a", "keys")}>gpg keys</span>
-                <span class="linkify-2" on:click={toggle.bind(toggle, "b", "resume")}>resume</span>
+                <span class="linkify-2" on:click={() => toggle("keys")}>gpg keys</span>
+                <span class="linkify-2" on:click={() => toggle("resume")}>resume</span>
             </h4>
 			<!--sse--><h6>Contact: <a class="linkify" href="mailto:hi@n4o.xyz">hi@n4o.xyz</a></h6><!--/sse-->
         </div>
         {/if}
         {#if showed === "keys"}
         <div id="keys-set" class="col-sm-6" in:fade>
-            <h4 class="bolder"><span class="linkify-2" on:click={toggle.bind(toggle, "a", "main")}>&lt; go back</span></h4>
+            <h4 class="bolder"><span class="linkify-2" on:click={() => toggle("main")}>&lt; go back</span></h4>
             <hr />
             {#each keys as {is_default, name, path}, i}
                 <h3 class="bolder">
@@ -111,7 +111,7 @@
         {/if}
         {#if showed === "resume"}
         <div id="resume-set" class="col-sm-6" in:fade>
-            <h4 class="bolder"><span class="linkify-2" on:click={toggle.bind(toggle, "a", "main")}>&lt; go back</span></h4>
+            <h4 class="bolder"><span class="linkify-2" on:click={() => toggle("main")}>&lt; go back</span></h4>
             <h2 class="bolder">Aiman Maharana</h2>
             <h5><a class="linkify" href="mailto:hi@n4o.xyz">hi@n4o.xyz</a></h5>
             <h6><a class="linkify" href="https://n4o.xyz">https://n4o.xyz</a></h6>
