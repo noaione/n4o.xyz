@@ -15,8 +15,9 @@ childProc.spawnSync("npm", ["run", "copy"], {
 
 console.info("Writing build time...");
 const indexPATH = path.join(__dirname, "..", "public", "index.html");
+const indexPATHBase = path.join(__dirname, "..", "static", "index.html");
 
-let indexHTML = fs.readFileSync(indexPATH).toString()
+let indexHTML = fs.readFileSync(indexPATHBase).toString()
 indexHTML = indexHTML.replace("{{buildTime}}", ((endBuild - startBuild) / 1000).toString());
 fs.writeFileSync(indexPATH, indexHTML);
 console.info("Build done!");
