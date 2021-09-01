@@ -3,6 +3,8 @@
 
     import { onMount } from "svelte";
     import { fade } from "svelte/transition";
+    import DevStack from "./components/DevStack.svelte";
+    import Project from "./components/Project.svelte";
 
     let loaded = false;
     onMount(() => {
@@ -118,15 +120,26 @@
             <h3 class="bolder">Experiences</h3>
             <p>TBW</p>
             <h3 class="bolder">Projects</h3>
-            <h5><a class="linkify-2 bolder" href="https://github.com/naoTimesdev/naoTimes">naoTimes</a> - A Discord Bot written in Python to track Fansub/Project progress</h5>
-            <h5><a class="linkify-2 bolder" href="https://github.com/ihateani-me/vtscheduler-ts">vtscheduler-ts</a> and <a class="linkify-2 bolder" href="https://github.com/ihateani-me/ihaapi-ts">ihaapi-ts</a> - A Multi-Function API mainly to track VTuber live stream</h5>
-            <h5><a class="linkify-2 bolder" href="https://github.com/noaione/tesaurus-python">tesaurus-python</a> - A tools to get Indonesian Thesaurus</h5>
+            <Project name="naoTimes" url="https://github.com/naoTimesdev/naoTimes" description="A Discord Bot written in Python to track Fansub/Project progress" />
+            <Project name="vtscheduler-ts" url="https://github.com/ihateani-me/vtscheduler-ts" description="A backend to track VTuber streams, utilizing multiple video platform API and MongoDB" />
+            <Project name="ihaapi-ts" url="https://github.com/ihateani-me/ihaapi-ts" description="An API mainly focused on VTuber, utilizing vtscheduler-ts and GraphQL" />
+            <Project name="tesaurus-python" url="https://github.com/noaione/tesaurus-python" description="A CLI/Python module to get Indonesian Thesaurus" />
             <h3 class="bolder">DevStack</h3>
-            <h5><b>languages: </b>python/python3, javascript/typescript</h5>
-            <h5><b>databases: </b>mongodb, redis</h5>
-            <h5><b>framework: </b>flask, nodejs, expressjs, graphql</h5>
-            <h5><b>devops: </b>nginx, circleci, github-actions</h5>
-            <h5><b>os: </b>windows, linux (ubuntu 16+, debian 9+, centos 7)</h5>
+            <DevStack title="languages">
+                python/python3, javascript/typescript, c#
+            </DevStack>
+            <DevStack title="framework">
+                flask, nodejs, expressjs, graphql, nextjs/reactjs
+            </DevStack>
+            <DevStack title="databases">
+                mongodb, mysql, redis
+            </DevStack>
+            <DevStack title="devops">
+                nginx, circleci, github-actions
+            </DevStack>
+            <DevStack title="os">
+                windows, linux (ubuntu 16+, debian 9+)
+            </DevStack>
             <h3 class="bolder">Education</h3>
             <h5><b>Asia Pacific University, Malaysia</b> - 2020-Present -- Computer Science (Intelligent System) </h5>
         </div>
