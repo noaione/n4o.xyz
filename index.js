@@ -1,4 +1,4 @@
-import App from "./templates/Main.svelte";
+import App from "./templates/main.svelte";
 
 const DEFAULT_KEY = "908B 72EC";
 
