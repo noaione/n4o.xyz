@@ -3,6 +3,7 @@
 
     import { onMount } from "svelte";
     import { fade } from "svelte/transition";
+    import Experience from "./components/Experience.svelte";
     import DevStack from "./components/DevStack.svelte";
     import Project from "./components/Project.svelte";
 
@@ -24,7 +25,6 @@
 </script>
 
 <style>
-
     .bolder {
         font-weight: 700;
     }
