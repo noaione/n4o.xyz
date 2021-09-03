@@ -23,19 +23,53 @@
         } else {
             extrasClass = "";
         }
-        if (showed !== "main") {
-            history.pushState(null, null, `/#/${showed}`);
-        } else {
-            history.pushState(null, null, "/#/");
+        // if (showed !== "main") {
+        //     // history.pushState(null, null, `/#/${showed}`);
+        // } else {
+        //     // history.pushState(null, null, "/#/");
+        // }
+    };
+
+    function onHashChanging() {
+        const hash = window.location.hash;
+        switch (hash) {
+            case "#/":
+                toggle("main");
+                break;
+            case "#/resume":
+                toggle("resume");
+                break;
+            case "#/keys":
+                toggle("keys");
+                break;
+            case "#/donate":
+                toggle("donate");
+                break;
+            default:
+                toggle("main");
+                break;
         }
     };
 
+    function changeRoute(targetHash) {
+        if (!targetHash) {
+            targetHash = "";
+        }
+        if (targetHash === "main") {
+            targetHash = "";
+            shouldCheck = false;
+        }
+        targetHash = `#/${targetHash}`;
+        window.location.hash = targetHash;
+    }
+
     onMount(() => {
+        window.addEventListener("hashchange", onHashChanging);
         let currentHash = window.location.hash.substr(2);
         if (currentHash !== "" && VALID_PAGE.includes(currentHash)) {
             toggle(currentHash);
         } else {
-            history.pushState(null, null, "/#/");
+            changeRoute();
         }
         setTimeout(() => loaded = true, 250)
     });
@@ -110,16 +144,16 @@
 			<h3 class="bolder"><a class="linkify-2" href="https://ihateani.me" target="_blank">ihateani.me</a></h3>
 			<hr />
             <h4 class="bolder">
-                <span class="linkify-2" on:click={() => toggle("keys")}>gpg keys</span>
-                <span class="linkify-2" on:click={() => toggle("resume")}>resume</span>
-                <span class="linkify-2" on:click={() => toggle("donate")}>donate</span>
+                <span class="linkify-2" on:click={() => changeRoute("keys")}>gpg keys</span>
+                <span class="linkify-2" on:click={() => changeRoute("resume")}>resume</span>
+                <span class="linkify-2" on:click={() => changeRoute("donate")}>donate</span>
             </h4>
 			<!--sse--><h6>Contact: <a class="linkify" href="mailto:hi@n4o.xyz">hi@n4o.xyz</a></h6><!--/sse-->
         </div>
         {/if}
         {#if showed === "keys"}
         <div id="keys-set" class="col-sm-6" in:fade>
-            <h4 class="bolder"><span class="linkify-2" on:click={() => toggle("main")}>&lt; go back</span></h4>
+            <h4 class="bolder"><span class="linkify-2" on:click={() => changeRoute()}>&lt; go back</span></h4>
             <hr />
             {#each keys as {is_default, name, path}, i}
                 <h3 class="bolder">
@@ -134,7 +168,7 @@
         {/if}
         {#if showed === "resume"}
         <div id="resume-set" class="col-sm-6" in:fade>
-            <h4 class="bolder"><span class="linkify-2" on:click={() => toggle("main")}>&lt; go back</span></h4>
+            <h4 class="bolder"><span class="linkify-2" on:click={() => changeRoute()}>&lt; go back</span></h4>
             <hr />
             <h2 class="bolder">Aiman Maharana</h2>
             <h5><a class="linkify" href="mailto:hi@n4o.xyz">hi@n4o.xyz</a></h5>
@@ -170,7 +204,7 @@
         {/if}
         {#if showed === "donate"}
         <div id="donate-set" class="col-sm-6" in:fade>
-            <h4 class="bolder"><span class="linkify-2" on:click={() => toggle("main")}>&lt; go back</span></h4>
+            <h4 class="bolder"><span class="linkify-2" on:click={() => changeRoute()}>&lt; go back</span></h4>
             <hr />
             <h5 class="bolder">Donate</h5>
             <p>You can donate to me via one of this link:</p>
