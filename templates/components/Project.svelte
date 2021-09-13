@@ -5,7 +5,7 @@
 </script>
 
 <h5>
-    <a href={url} class="linkify-2 bolder">{name}</a> - {description}
+    <a href={url} class="linkify-2 bolder">{name}</a> - <span class="dark-text">{description}</span>
 </h5>
 
 <style>
@@ -30,5 +30,9 @@
 
     .bolder {
         font-weight: 700;
+    }
+
+    .dark-text {
+        color: #9e9e9e;
     }
 </style>

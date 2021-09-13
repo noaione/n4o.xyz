@@ -7,5 +7,11 @@
 
 <h5>
     <b>{title}</b>
-    <slot />
+    <span class="dark-text"><slot /></span>
 </h5>
+
+<style>
+    .dark-text {
+        color: #c7c7c7;
+    }
+</style>

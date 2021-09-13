@@ -11,7 +11,7 @@
 <div class="experience-container">
     <h5 style="font-weight: 700;">{name}</h5>
     <span>{start} - {end}</span>
-    <div>
+    <div class="dark-text">
         <slot />
     </div>
 </div>
@@ -20,5 +20,9 @@
     .experience-container {
         display: flex;
         flex-direction: column;
+    }
+
+    .dark-text {
+        color: #c7c7c7;
     }
 </style>

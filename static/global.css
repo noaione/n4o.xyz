@@ -151,3 +151,47 @@ h6, .h6 {
 [hidden] {
     display: none !important
 }
+
+/* Link styling */
+
+.bolder {
+    font-weight: 700;
+}
+
+.linkify {
+    color: #d6d6d6;
+    text-decoration: none;
+    background-image: linear-gradient(#5a8dd9, #5a9ed9);
+    background-size: 0% 0.1em;
+    background-position-y: 100%;
+    background-position-x: 0%;
+    background-repeat: no-repeat;
+    transition: background-size 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.linkify:hover,
+.linkify:focus,
+.linkify:active {
+    color: #d6d6d6;
+    background-size: 100% 0.1em;
+}
+
+.linkify-2 {
+    color: #d6d6d6;
+    text-decoration: none;
+    background-image: linear-gradient(rgb(212, 171, 54), rgb(226, 54, 24));
+    background-size: 0% 0.1em;
+    background-position-y: 100%;
+    background-position-x: 0%;
+    background-repeat: no-repeat;
+    transition: background-size 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.linkify-2:hover,
+.linkify-2:focus,
+.linkify-2:active {
+    color: #d6d6d6;
+    background-size: 100% 0.1em;
+}
