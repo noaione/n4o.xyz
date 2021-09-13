@@ -35,6 +35,20 @@
     scroll-behavior: smooth
 }
 
+@font-face {
+    font-family: "Cascadia Code";
+    font-style: normal;
+    font-weight: 400;
+    src: url(/assets/fonts/CascadiaCode.woff2) format("woff2");
+}
+
+@font-face {
+    font-family: "Cascadia Code";
+    font-style: italic;
+    font-weight: 400;
+    src: url(/assets/fonts/CascadiaCodeItalic.woff2) format("woff2");
+}
+
 body {
     margin: 0;
     font-family: var(--bs-font-sans-serif);
